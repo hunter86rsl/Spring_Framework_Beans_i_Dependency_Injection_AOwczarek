@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="injectedBean1" class="info.owczarek.springtutorial.InjectedBean">
+		<property name="name" value="Wstrzykiwany bean 1"></property>
+	</bean>
+
+	<bean id="injectedBean2" class="info.owczarek.springtutorial.InjectedBean">
+		<property name="name" value="Wstrzykiwany bean 2"></property>
+	</bean>
+
+	<!-- <bean id="someBean" class="info.owczarek.springtutorial.SomeBean" autowire="byName"> -->
+	<!-- </bean> -->
+	
+	<bean id="someBean" class="info.owczarek.springtutorial.SomeBean" autowire="byName">
+		<property name="injectedBean2" ref="injectedBean1" />
+	</bean>
+
+</beans>
